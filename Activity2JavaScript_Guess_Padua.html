@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Number Guessing Game</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+        h2 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Number Guessing Game</h2>
+    <p>Click the button below to start the game!</p>
+
+    <button onclick="startGame()">Start Game</button>
+
+    <script>
+        function startGame() {
+            // Generate a random number between 1 and 100
+            let secretNumber = Math.floor(Math.random() * 100) + 1;
+
+            let guess;
+            let attempts = 0;
+
+            // Game loop
+            do {
+                guess = prompt("Guess a number between 1 and 100:");
+
+                // Convert guess to number
+                guess = Number(guess);
+                attempts++;
+
+                // Provide feedback
+                if (guess > secretNumber) {
+                    alert("Too high! Try again.");
+                } else if (guess < secretNumber) {
+                    alert("Too low! Try again.");
+                } else if (guess === secretNumber) {
+                    alert("🎉 Correct! You guessed the number in " + attempts + " attempts.");
+                } else {
+                    alert("Invalid input! Please enter a number.");
+                }
+
+            } while (guess !== secretNumber);
+        }
+    </script>
+
+</body>
+</html>
